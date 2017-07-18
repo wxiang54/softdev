@@ -1,0 +1,27 @@
+{% extends "base/defaultBase.html" %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+
+
+{% block content %}
+
+    <h2>Register or Log in Here!</h2>
+    <form action="/auth" method="POST">
+
+      <input name="username" type="text" placeholder="Username">
+      <br>
+
+      <input name="password" type="text" placeholder="Password">
+      <br><br><br>
+
+      <button name="action" value="register" type="submit">Register</button>
+      &nbsp;&nbsp;&nbsp;
+
+      <button name="action" value="login" type="submit">Log In</button>
+
+    </form>
+
+{% endblock content %}

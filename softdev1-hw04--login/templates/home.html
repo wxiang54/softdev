@@ -1,0 +1,20 @@
+{% extends "base/defaultBase.html" %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+
+
+{% block content %}
+
+<h3>Welcome, {{ username }}!</h3>
+<br>
+
+<form method="POST" action="/logout">
+  <button name="action" value="logout" type="submit">
+    Log Out
+  </button>
+</form>
+
+{% endblock content %}

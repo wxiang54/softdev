@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {% block title %}
+      GIVE ME A TITLE
+      {% endblock title %}
+    </title>
+
+    {% block imports %}
+    {# CSS and JS stuff here #}
+    {% endblock imports %}
+  </head>
+
+
+  <body>
+    <!-- ERROR MSGS -->
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+    <p style="color:red">
+      {%- for msg in errors %}
+      {{ msg }}
+      <br>
+      {% endfor -%}
+    </p>
+    {% endif %}
+    {% endwith %}
+
+    <!-- SUCCESS MSGS -->
+    {% with successes = get_flashed_messages(category_filter=["success"]) %}
+    {% if successes %}
+    <p style="color:green">
+      {%- for msg in successes %}
+      {{ msg }}
+      <br>
+      {% endfor -%}
+    </p>
+    {% endif %}
+    {% endwith %}
+
+
+    {% block content %}
+    THIS IS THE BODY
+    {% endblock content %}
+    
+  </body>
+
+</html>
