@@ -1,0 +1,72 @@
+body {
+    background-color: #241623;
+}
+
+.content {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #FFF;
+}
+
+
+h1, h2, h3 {
+    background-color: #D0CD94;
+    color: #3C787E;
+    display: inline-block;
+}
+
+
+a {
+    color: #C7EF00;
+}
+
+a:visited {
+    color: #7F9900;
+}
+
+a:hover {
+    color: #FFF;
+}
+
+a:visited:hover {
+    color: #F00;
+}
+
+
+p {
+    color: #D56F3E;
+}
+
+.extreme {
+    color: #FFF;
+}
+
+.extreme:hover {
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 900;
+    font-size: 2em;
+    font-family: Courier New, monaco, monospace;
+}
+
+
+#tehlulz:before {
+    color: #FFF;
+    font-size: 1em;
+    content: "<TEHLULZ> ";
+}
+
+#tehlulz:after {
+    color: #FFF;
+    font-size: 1em;
+    content: "</TEHLULZ> ";
+}
+
+
+.navzone {
+    background: #3E2A4C;
+    padding: 0px 50px 20px 30px;
+    display: inline-block;    
+}

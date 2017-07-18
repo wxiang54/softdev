@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="unproductivity.css">
+    <title>Dub X's CSS Things</title>
+</head>
+
+<body>
+
+    <ul id="navbar">
+        <li class="header"><a>Dub X's Three Interesting CSS Things</a></li>
+        <li><a href="#thing3">Thing 3</a></li>
+        <li><a href="#thing2">Thing 2</a></li>
+        <li><a href="#thing1">Thing 1</a></li>
+    </ul>
+
+    <section id="thing1">
+        <h1>Thing 1: Using &quot; &quot; VS &quot;&gt;&quot; with multiple CSS selectors</h1>
+
+        <div class="container-text">
+            <p class="text">A space between two selectors means "apply the following CSS code to <b>ALL</b> &lt;second selector&gt; inside the &lt;first selector&gt;". Specifically, the space defines the second selector as a <b>descendant selector</b> and causes <b>all elements</b> (all children and their subchildren, and their subchildren and ...) in the first selector to be affected by the CSS code. The following example displays this concept.</p>
+        </div>
+
+        <div class="container-flex">
+            <div class="item">
+                <h3>HTML</h3>
+
+                <pre class="code">
+<!-- I wanted to use js to escape :( 
+--><span class="html-tag">&lt;div class=<span class="html-value">&quot;page1&quot;</span>&gt;</span>
+
+    <span class="html-tag">&lt;p <span class="html-attribute">class</span>=<span class="html-value">&quot;space&quot;</span>&gt;</span>
+        <span class="html-text">Outside div</span>
+    <span class="html-tag">&lt;/p&gt;</span>
+
+    <span class="html-tag">&lt;div <span class="html-attribute">class</span>=<span class="html-value">&quot;container&quot;</span>&gt;</span>
+        <span class="html-tag">&lt;p <span class="html-attribute">class</span>=<span class="html-value">&quot;space&quot;</span>&gt;</span>
+            <span class="html-text">Inside div</span>
+        <span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;/div&gt;</span>
+	
+<span class="html-tag">&lt;/div&gt;</span>
+			</pre>
+            </div>
+
+            <div class="item">
+                <h3>CSS</h3>
+                <pre class="code">
+<span class="css-selector">.page1 p.space</span> {
+    <span class="css-property">color</span>: <span class="css-value">red</span>;
+    <span class="css-property">font-size</span>: <span class="css-value">1.3em</span>;
+    <span class="css-property">font-weight</span>: <span class="css-value">900</span>;
+}
+			</pre>
+            </div>
+
+            <div class="item">
+                <h3>Output</h3>
+                <div class="page1">
+                    <p class="space">Outside div</p>
+
+                    <div class="container">
+                        <p class="space">Inside div</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="style1">
+
+        <div class="container-text">
+            <p class="text">
+                On the contrary, a &quot;&gt;&quot; between two selectors means "apply the following CSS code to all &lt;second selector&gt; inside the &lt;first selector&gt; <b>not enclosed in another tag.</b> Specifically the &quot;&gt;&quot; defines the second selector as a <b>child selector</b> and causes all <b>immediate children</b> (all children, but not their subchildren) in the first selector to be affected by the CSS code. The following example displays this concept.
+            </p>
+        </div>
+
+        <div class="container-flex">
+            <div class="item">
+                <h3>HTML</h3>
+
+                <pre class="code">
+<!-- I wanted to use js to escape :( 
+--><span class="html-tag">&lt;div class=<span class="html-value">&quot;page1&quot;</span>&gt;</span>
+
+    <span class="html-tag">&lt;p <span class="html-attribute">class</span>=<span class="html-value">&quot;greaterThan&quot;</span>&gt;</span>
+        <span class="html-text">Outside div</span>
+    <span class="html-tag">&lt;/p&gt;</span>
+
+    <span class="html-tag">&lt;div <span class="html-attribute">class</span>=<span class="html-value">&quot;container&quot;</span>&gt;</span>
+        <span class="html-tag">&lt;p <span class="html-attribute">class</span>=<span class="html-value">&quot;greaterThan&quot;</span>&gt;</span>
+            <span class="html-text">Inside div</span>
+        <span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;/div&gt;</span>
+	
+<span class="html-tag">&lt;/div&gt;</span>
+			</pre>
+            </div>
+
+            <div class="item">
+                <h3>CSS</h3>
+                <pre class="code">
+<span class="css-selector">.page1</span>&gt;<span class="css-selector">p.greaterThan</span> {
+    <span class="css-property">color</span>: <span class="css-value">red</span>;
+    <span class="css-property">font-size</span>: <span class="css-value">1.3em</span>;
+    <span class="css-property">font-weight</span>: <span class="css-value">900</span>;
+}
+			</pre>
+            </div>
+
+            <div class="item">
+                <h3>Output</h3>
+                <div class="page1">
+                    <p class="greaterThan">Outside div</p>
+
+                    <div class="container">
+                        <p class="greaterThan">Inside div</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-text">
+            <p class="text">
+                <b>Note</b>: &quot;selector1&gt;selector2&quot; and &quot;selector1 &gt; selector2&quot; mean different things in some browsers because the space sometimes throws browsers off into thinking it's a descendent selector, so always stick to the no-space variant.
+                <br>
+            </p>
+            
+            <p class="link">
+                <a href="https://www.sitepoint.com/web-foundations/introduction-css-selectors/#class-selector" target="_blank">Read more</a>
+            </p>
+        </div>
+    </section>
+
+
+    <section id="thing2">
+        <h1>Thing 2: The CSS Box Model</h1>
+
+        <div class="container-text">
+            <p class="text">
+                For those confused with the difference between padding and margin and what they do, this may help! Imagine a box like this around every single HTML element, with the <b>content</b> of the element (i.e. text, image) inside the content box in this model. Directly outside the content is <b>padding</b>, which is used to position the content inside its <b>border</b> without directly disrupting other things on the page. If you do want to disrupt other things and position your object in respect to its outer container (outside the border), you would use <b>margin</b>. The following example displays this concept.
+            </p>
+        </div>
+
+        <div class="container-flex">
+            <div class="item">
+                <h3>HTML</h3>
+
+                <pre class="code">
+<span class="html-tag">&lt;div <span class="html-attribute">class</span>=<span class="html-value">&quot;page2&quot;</span>&gt;</span>
+    <span class="html-text">Margin</span>
+    <span class="html-tag">&lt;div <span class="html-attribute">class</span>=<span class="html-value">&quot;main&quot;</span>&gt;</span>
+        <span class="html-text">Padding</span>
+        <span class="html-tag">&lt;p <span class="html-attribute">class</span>=<span class="html-value">&quot;content&quot;</span>&gt;</span>
+            <span class="html-text">Content</span>
+        <span class="html-tag">&lt;/p&gt;</span>
+    <span class="html-tag">&lt;/div&gt;</span>
+
+    <span class="html-comment">&lt;!-- &amp;uarr; is the up arrow! --&gt;</span>
+    <span class="html-text"><span class="html-text-symbol">&amp;uarr;</span> Border <span class="html-text-symbol">&amp;uarr;</span></span>
+<span class="html-tag">&lt;/div&gt;</span>
+			</pre>
+            </div>
+
+            <div class="item">
+                <h3>CSS</h3>
+                <pre class="code">
+<span class="css-selector">.main</span> {
+    <span class="css-property">margin-top</span>: <span class="css-value">20px</span>;
+    <span class="css-property">padding</span>: <span class="css-value">10px 30px</span>;
+    <span class="css-property">background-color</span>: <span class="css-value">yellow</span>;
+    <span class="css-property">border</span>: <span class="css-value">solid darkorange 10px</span>;
+}
+			</pre>
+            </div>
+
+            <div class="item">
+                <h3>Output</h3>
+                <div class="page2">
+                    Margin
+                    <div class="main">
+                        Padding
+                        <p class="content">
+                            Content
+                        </p>
+                    </div>
+
+                    <!-- &uarr; is the arrow! -->
+                    &uarr; Border &uarr;
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container-text">
+            <p class="link">
+                <a href="http://www.w3schools.com/css/css_boxmodel.asp" target="_blank">Read more</a>
+            </p>
+        </div>
+    </section>
+
+
+
+    <section id="thing3">
+        <h1>Thing 3: Browser Rendering Debacle</h1>
+
+        <div class="container-text">
+            <p class="text">
+                The state of CSS cross-browser compatibility is kind of a mess right now, as browsers like Chrome, Firefox, and IE all tried to implement their own <b>different versions</b> of some new CSS3 properties and functions.
+            </p>
+
+            <p class="text">
+                All browsers have their own rendering engine for web pages. Chrome (and Opera) use Google's <b>Blink</b> engine, IE uses <b>Trident</b>, Firefox uses one named <b>Gecko</b>, and Safari uses the good ol' <b>WebKit</b> (Chrome and Opera initially also used WebKit but have since changed to use Blink instead). Thus, for example, the <i>opacity</i> property may be different from the <i>-webkit-opacity</i> or the <i>-moz-opacity</i> or etc.
+            </p>
+
+            <p class="text">
+                To make sure that your CSS renders correctly for all browsers, you must use <b>ALL</b> the various rendering engine prefixes along with the original property/function for when it gets officially released.
+            </p>
+        </div>
+
+        <div class="container-flex">
+            <div class="item">
+                <h3>HTML</h3>
+                <pre class="code">
+<span class="html-tag">&lt;div <span class="html-attribute">class=<span class="html-value">&quot;page3&quot;&gt;</span>
+
+    <span class="html-tag">&lt;div <span class="html-attribute">class</span>=<span class="html-value">&quot;gradient gradient-webkit&quot;</span>&gt;</span>
+        <span class="html-text">This background should work for 
+        (the most recent versions of): 
+        Chrome, 
+        Safari, 
+        Edge, 
+        Firefox,
+        and probably Opera.</span>
+    <span class="html-tag">&lt;/div&gt;</span>
+
+    <span class="html-tag">&lt;div <span class="html-attribute">class</span>=<span class="html-value">&quot;gradient gradient-moz&quot;</span>&gt;</span>
+        <span class="html-text">This background should only work for:
+        Firefox.</span>
+    <span class="html-tag">&lt;/div&gt;</span>
+
+    <span class="html-tag">&lt;div <span class="html-attribute">class</span>=<span class="html-value">&quot;gradient gradient-ms&quot;</span>&gt;</span>
+        <span class="html-text">This background should only work for:
+        Internet Explorer
+        and Edge.</span>
+    <span class="html-tag">&lt;/div&gt;</span>
+
+<span class="html-tag">&lt;/div&gt;</span>
+</pre>
+                </pre>
+
+            </div>
+
+            <div class="item">
+                <h3>CSS</h3>
+                <pre class="code">
+<span class="css-selector">.gradient</span> {
+    <span class="css-property">width</span>: <span class="css-value">500px</span>;
+    <span class="css-property">margin</span>: <span class="css-value">10px</span>;
+    <span class="css-property">font-size</span>: <span class="css-value">0.8em</span>;
+    <span class="css-property">line-height</span>: <span class="css-value">27px</span>;
+    <span class="css-property">padding</span>: <span class="css-value">10px</span>;
+}
+
+<span class="css-selector">.gradient-webkit</span> {
+    <span class="css-property">background-image</span>: 
+    <span class="css-function">-webkit-linear-gradient</span>(
+        <span class="css-value">top</span>, <span class="css-value">palegreen</span>, <span class="css-value">skyblue</span>
+    );
+}
+
+<span class="css-selector">.gradient-moz</span> {
+    <span class="css-property">background-image</span>: 
+    <span class="css-function">-moz-linear-gradient</span>(
+        <span class="css-value">top</span>, <span class="css-value">palegreen</span>, <span class="css-value">skyblue</span>
+    );
+}
+
+<span class="css-selector">.gradient-ms</span> {
+    <span class="css-property">background-image</span>: 
+    <span class="css-function">-ms-linear-gradient</span>(
+        <span class="css-value">top</span>, <span class="css-value">palegreen</span>, <span class="css-value">skyblue</span>
+    );
+}
+			</pre>
+            </div>
+
+            <div class="item">
+                <h3>Output</h3>
+                <div class="page3">
+
+                    <div class="gradient gradient-webkit">
+                        This background should work for (the most recent versions of): Chrome, Safari, Edge, Firefox and probably Opera.
+                    </div>
+
+                    <div class="gradient gradient-moz">
+                        This background should only work for: Firefox.
+                    </div>
+
+                    <div class="gradient gradient-ms">
+                        This background should only work for: Internet Explorer and Edge.
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container-text">
+            <p class="text">
+                Also note that the &nbsp;&nbsp;&nbsp;<b>------------- VS -------------</b>&nbsp;&nbsp;&nbsp; bar in Thing 1 breaks for Internet Explorer and Microsoft Edge!
+            </p>
+            
+            <p class="link">
+                <a href="https://en.wikipedia.org/wiki/Comparison_of_web_browser_engines" target="_blank">Read more</a>
+
+            </p>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
