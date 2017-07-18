@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>{{ title }}</title>
+  </head>
+
+  <body>
+    <table border='3px' style="text-align:center;">
+      <tr>
+	<th><b>OCCUPATION</b></th>
+	<th><b>CHANCE</b></th>
+      </tr>
+      {% for occupation in jobsDict %}
+      <tr>
+	<td>{{ occupation }}</td>
+	<td>{{ jobsDict[occupation] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <h4>Random Occupation: </h4>
+    <h2 style="background-color: yellow">{{ randJob }}</h2>
+    <br>
+    <a href="http://{{ jobLink }}" target="_blank">More info here</a>
+    <br>
+  </body>
+
+
+</html>
