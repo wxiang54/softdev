@@ -1,0 +1,68 @@
+.chart {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.chart .bar-wrapper {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-end;
+    text-align: center;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+
+/* YEAR LABEL */
+.bar-wrapper label {
+    position: absolute;
+    width: 63%;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 20px;;
+}
+
+/* REVENUE */
+.bar-wrapper .bar-left {
+    font: 15px sans-serif;
+    background-color: palegreen;
+    padding: 10px;
+    margin: 1px;
+    color: black;
+}
+
+/* SPENDING */
+.bar-wrapper .bar-right {
+    font: 15px sans-serif;
+    background-color: salmon;
+    padding: 10px;
+    margin: 1px;
+    color: black;
+}
+
+.bar-wrapper .bar-right:not(:last-child) {
+    margin-right: 80px;
+}
+
+
+/****** DEMO STUFF *********/
+.container {
+    display: inline-flex;
+}
+
+.box-left {
+    background-color: palegreen;
+    height: 20px;
+    width: 20px;
+}
+
+.box-right {
+    background-color: salmon;
+    height: 20px;
+    width: 20px;
+}
