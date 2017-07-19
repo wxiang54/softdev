@@ -1,2 +1,2 @@
-# softdev
-Collection of my Software Development homeworks under the instruction of Mr. Topher BrownMykolyk
+# stuy-softdev
+Collection of my Software Development homeworks under the instruction of Mr. Topher Brown Mykolyk
